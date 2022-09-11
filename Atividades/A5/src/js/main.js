@@ -41,10 +41,26 @@ form.addEventListener('submit', (e) => {
                                     }
                             }
                     }
-            }
-    }    
+            }      
+    }
     
     else{
+
+        let cadastro = {
+            name : "",
+            cpf  : "",   
+            date : "",
+            email: "",
+            fone: "",
+            cep  : ""
+        }
+    
+        fields.forEach(($getCampo) => {
+            let campo = $getCampo.dataset.js
+            
+            cadastro[campo] = $getCampo.value
+        })
+
         alert("Cadastro realizado com sucesso!")
     }
 })
