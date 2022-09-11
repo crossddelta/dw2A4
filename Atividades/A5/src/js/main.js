@@ -46,14 +46,7 @@ form.addEventListener('submit', (e) => {
     
     else{
 
-        let cadastro = {
-            name : "",
-            cpf  : "",   
-            date : "",
-            email: "",
-            fone: "",
-            cep  : ""
-        }
+        let cadastro = {}
     
         fields.forEach(($getCampo) => {
             let campo = $getCampo.dataset.js
