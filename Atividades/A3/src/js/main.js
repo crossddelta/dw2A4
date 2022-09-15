@@ -3,6 +3,7 @@ import {validator} from "./js_modules/validate.js"
 
 const form = document.querySelector('form')
 document.querySelectorAll('input').forEach(($input) => {
+    console.log($input)
     const field = $input.dataset.js
 
     $input.addEventListener('input', (e) =>{

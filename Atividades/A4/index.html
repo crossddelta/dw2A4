@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coronavírus (COVID-19) - Dados por Estado</title>
+</head>
+<body>
+    <header>
+        <h1>Coronavírus (COVID-19)</h1>
+        <h2>Consulte as informações sobre o COVID em seu Estado</h2>
+    </header>
+    <main>
+        <form id="data-in">
+            <label for="cep">Informe seu CEP: </label>
+            <input type="cep" class="cep" id="cep" />
+            <button id="button">Enviar</button>
+        </form>
+        <section id="data-out">
+
+        </section>
+    </main>
+
+    <script type="module" src="./js/modules/format.js"></script>
+    <script type="module" src="./js/modules/validate.js"></script>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
