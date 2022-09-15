@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coronavírus (COVID-19) - Dados por Estado</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
@@ -14,16 +15,18 @@
     <main>
         <form id="data-in">
             <label for="cep">Informe seu CEP: </label>
-            <input type="cep" class="cep" id="cep" />
-            <button id="button">Enviar</button>
+            <input type="cep" class="cep" id="cep" placeholder=" Digite aqui"/>
+            <button class="btn default" id="button">Enviar</button>
         </form>
+        
         <section id="data-out">
-
+            
         </section>
     </main>
 
     <script type="module" src="./js/modules/format.js"></script>
     <script type="module" src="./js/modules/validate.js"></script>
     <script type="module" src="./js/main.js"></script>
+    
 </body>
 </html>

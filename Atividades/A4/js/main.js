@@ -34,23 +34,22 @@ form.addEventListener('submit', (e) => {
     }
 })
 
+
 async function cepConsult(cepUrl) {
     let url = `https://viacep.com.br/ws/${cepUrl}/json/`
-    
-    await fetch(url, {"method": "GET"})
-    .then(function(response){
-        response.json()
-        .then(function(data) {
-            covidConsult(data)
-        })
-    })
-    .catch(err => console.log(err));
+
+    /* Trabalhando com fetch de forma mais simples */
+    const result = await fetch(url, {"method": "GET"})
+    const convertedResult = await result.json()
+    covidConsult(convertedResult) 
+  
 }
 
 async function covidConsult(state){
-    let uf = state.uf
+    let uf = await state.uf
     let covidData = `https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/${uf}`
 
+    /* Utilizando fetch encadeado e "tratando erro" */
     await fetch(covidData, {"method": "GET"})
     .then(function(response){
         response.json()
@@ -62,7 +61,6 @@ async function covidConsult(state){
 }
 
 function showData(data){
-    console.log(data)
     let date = new Date(data.datetime)
     let brWeekDay = formatter.getWeekDay(date.getUTCDay())
     let brMonth = formatter.getMonth(date.getUTCMonth())
@@ -73,7 +71,7 @@ function showData(data){
     }
     else{
         results.innerHTML = `<h2>Informações sobre o COVID para ${data.state}</h2>
-                                <section>
+                                <section id="covid-content">
                                     <p>Casos registrados: ${formatter.formatResults(data.cases)}</p>
                                     <p>Mortes: ${formatter.formatResults(data.deaths)}</p>
                                     <p>Suspeitos: ${formatter.formatResults(data.suspects)}</p>
@@ -83,4 +81,6 @@ function showData(data){
     }
     
 }
+
+
 
