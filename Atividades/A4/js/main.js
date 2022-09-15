@@ -34,31 +34,31 @@ form.addEventListener('submit', (e) => {
     }
 })
 
-function cepConsult(cepUrl) {
+async function cepConsult(cepUrl) {
     let url = `https://viacep.com.br/ws/${cepUrl}/json/`
     
-    fetch(url, {"method": "GET"})
+    await fetch(url, {"method": "GET"})
     .then(function(response){
         response.json()
         .then(function(data) {
             covidConsult(data)
         })
     })
-    .catch(err => console.error(err));
+    .catch(err => console.log(err));
 }
 
-function covidConsult(state){
+async function covidConsult(state){
     let uf = state.uf
     let covidData = `https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/${uf}`
 
-    fetch(covidData, {"method": "GET"})
+    await fetch(covidData, {"method": "GET"})
     .then(function(response){
         response.json()
         .then(function(data) {
             showData(data)
         })
     })
-    .catch(err => console.error(err));  
+    .catch(err => console.log(err));  
 }
 
 function showData(data){
