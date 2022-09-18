@@ -61,7 +61,7 @@ class Format{
         value = String(value)
         
         return value
-        .replace(/(\d?)(\d{3})$/, '$1.$2')
+        .replace(/(\d)(\d{3})$/, '$1.$2')
         .replace(/(\d)(\d{3}?)(\.)/, '$1.$2$3')
     }
 }
