@@ -1,11 +1,11 @@
 import '@testing-library/jest-dom'
 import { render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import App from './App'
+import List from './List'
 
-describe('App Component', () => {
+describe('List Component', () => {
     it('should render list items', () => {
-        const{ getByText } = render(<App />)
+        const{ getByText } = render(<List initialItems={['Diego', 'Rodz', 'Mayk']} />)
 
         expect(getByText('Diego')).toBeInTheDocument();
         expect(getByText('Rodz')).toBeInTheDocument();
@@ -13,7 +13,7 @@ describe('App Component', () => {
     })
 
     it('should be able to add new item to the list', () => {
-        const { getByText, getByPlaceholderText, findByText } = render(<App />);
+        const { getByText, getByPlaceholderText, findByText } = render(<List initialItems={[]} />);
 
         const inputElement = getByPlaceholderText('Novo item');
         const addButton = getByText('Adicionar');
@@ -27,7 +27,7 @@ describe('App Component', () => {
     })
 
     it('should be able to add new item to the list', () => {
-        const { getByText, getAllByText, getByPlaceholderText, findByText } = render(<App />);
+        const { getByText, getAllByText, getByPlaceholderText, findByText } = render(<List initialItems={['Diego']} />);
 
         const addButton = getByText('Adicionar');
 
