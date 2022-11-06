@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import { render } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from './App'
 
@@ -12,15 +12,32 @@ describe('App Component', () => {
         expect(getByText('Mayk')).toBeInTheDocument();
     })
 
-    it('should be able to add new item to the list', async () => {
-        const { getByText, getByPlaceholderText } = render(<App />);
+    it('should be able to add new item to the list', () => {
+        const { getByText, getByPlaceholderText, findByText } = render(<App />);
 
         const inputElement = getByPlaceholderText('Novo item');
         const addButton = getByText('Adicionar');
 
-        await userEvent.type(inputElement, 'Novo')
-        await userEvent.click(addButton)
+        userEvent.type(inputElement, 'Novo');
+        userEvent.click(addButton);
 
-        expect(getByText('Novo')).toBeInTheDocument();
+        waitFor( async () => {
+            expect(await findByText('Novo')).toBeInTheDocument();
+        })
+    })
+
+    it('should be able to add new item to the list', () => {
+        const { getByText, getAllByText, getByPlaceholderText, findByText } = render(<App />);
+
+        const addButton = getByText('Adicionar');
+
+        userEvent.click(addButton);
+        const removeButtons = getAllByText('Remover');
+
+        userEvent.click(removeButtons[0])
+
+        waitFor( async () => {
+            expect(await findByText('Diego')).not.toBeInTheDocument();
+        })
     })
 })
