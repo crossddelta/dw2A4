@@ -5,13 +5,13 @@ module.exports = {
       extend: {
         colors: {
           brand: {
-            500: '#8257e6'
-          },
-          bkg: {
-            700: '#09090A'
+            500: '#4040ff'
           }
         }
       },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('tailwind-scrollbar'),
+  ],
 }
