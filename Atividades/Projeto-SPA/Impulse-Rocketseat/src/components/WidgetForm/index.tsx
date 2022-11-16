@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import bugImageUrl from "../../assets/gota.png";
-import ideaImageUrl from "../../assets/nuvem.png";
+import ideaImageUrl from "../../assets/sol.png";
 import thoughtImageUrl from "../../assets/nuvem.png";
 import { FeedbackContentStep } from "./Steps/FeedbackContentStep";
 import { FeedbackSuccessStep } from "./Steps/FeedbackSuccessStep";
