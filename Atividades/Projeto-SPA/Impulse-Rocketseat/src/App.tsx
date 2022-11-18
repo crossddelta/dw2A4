@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Widget } from "./components/Widget";
 
 export function App() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState<any>({});
   const [location, setLocation] = useState('')
   const url=`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=7ef0cbcc46b664cc0adfc346bb9b05e7&lang=pt_br`
 
