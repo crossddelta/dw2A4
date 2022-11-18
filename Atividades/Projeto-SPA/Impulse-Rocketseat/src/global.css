@@ -64,13 +64,14 @@ h1 {
 }
 
 .container {
-  max-width: 700px;
-  height: 600px;
+  max-width: 70vh;
+  width: 100%;
+  min-width: 480px;
+  height: 80vh;
   margin: auto;
   padding: 0 1rem;
   position: relative;
   top: 10%;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -83,18 +84,11 @@ h1 {
 
 .app .description {
   position: relative;
-  right: -88%;
-  bottom: -50%;
-  transform-origin: 0 0;
-  transform: rotate(270deg);
+
 }
 
 .description p {
   text-transform: capitalize;
-}
-
-.description div img {
-  transform: rotate(90deg);
 }
 
 .app .bottom {
@@ -106,8 +100,29 @@ h1 {
   padding: 1rem;
   border-radius: 12px;
   background-color: rgba(255,255,255, 0.2);
+  position: sticky;
+  top: 80%;
 }
+
+
 
 .bold {
   font-weight: 700;
+}
+
+@media screen and (max-width: 550px){
+
+  .top {
+    padding-left: 0;
+  }
+  
+  .top div p{
+    font-size: 42px;
+  }
+
+  .temp h1{
+    text-align: center;
+    border-left: 0;
+    font-size: 150px;
+  }
 }

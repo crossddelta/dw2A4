@@ -30,16 +30,16 @@ export function FeedbackContentStep({
 
     setIsSendingFeedback(true);
 
-    try {
-      await api.post("/feedback", {
-        screenshot,
-        comment,
+    // try {
+      await api.post("/feedbacks", {
         type: feedbackType,
+        comment,
+        screenshot,
       });
-    } catch (error) {
-      setIsSendingFeedback(false);
-      console.log(error);
-    }
+    // } catch (error) {
+      // setIsSendingFeedback(false);
+    //   console.log(error);
+    // }
 
     onFeedbackSent();
   }
