@@ -3,6 +3,7 @@ import { useState } from "react";
 import bugImageUrl from "../../assets/gota.png";
 import ideaImageUrl from "../../assets/sol.png";
 import thoughtImageUrl from "../../assets/nuvem.png";
+import elogioImageUrl from "../../assets/rainbow.png";
 import { FeedbackContentStep } from "./Steps/FeedbackContentStep";
 import { FeedbackSuccessStep } from "./Steps/FeedbackSuccessStep";
 
@@ -28,6 +29,13 @@ export const feedbackTypes = {
     image: {
       source: thoughtImageUrl,
       alt: "Imagem de um balão de pensamento",
+    },
+  },
+  ELOGIO: {
+    title: "Elogio",
+    image: {
+      source: elogioImageUrl,
+      alt: "Imagem de um arco-íris",
     },
   },
 };
